@@ -36,12 +36,12 @@ jobs:
       uses: ScaCap/action-surefire-report@v1
     - name : Generate quality report
       env :
-        SONAR_TOKEN: ${{ secrets.SONARTOKEN }}
-        SONAR_HOST_URL : ${{ secrets.SONAR_HOST_URL }}
+        SONARTOKEN: ${{ secrets.SONARTOKEN }}
+        SONARHOSTURL : ${{ secrets.SONARHOSTURL }}
       run : >
         mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
         -Dsonar.host.url=https://sonarcloud.io
         -Dsonar.organization=virgilsurin
         -Dsonar.projectKey=VirgilSurin_TimerStopWatch-Project
         -Dsonar.branch.name=main
-        -Dsonar.login= $SONAR_TOKEN
+        -Dsonar.login= $SONARTOKEN
